@@ -1,0 +1,61 @@
+{
+  "name": "design-labs-ui",
+  "version": "1.0.0",
+  "description": "A modern UI component library",
+  "keywords": [
+    "design",
+    "labs",
+    "UI",
+    "react-components",
+    "ui-library"
+  ],
+  "homepage": "https://github.com/t3nsor98/Design-Labs-UI#readme",
+  "bugs": {
+    "url": "https://github.com/t3nsor98/Design-Labs-UI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t3nsor98/Design-Labs-UI.git"
+  },
+  "license": "ISC",
+  "author": "digbijaya lenka",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "dev": "rollup -c -w",
+    "lint": "eslint src/**/*.{ts,tsx}"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/react": "^19.1.2",
+    "postcss": "^8.4.31",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rollup": "^2.79.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.2.2",
+    "jest": "^29.7.0",
+    "eslint": "^8.56.0"
+  },
+  "dependencies": {}
+}
