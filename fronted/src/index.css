@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Primary Colors */
+  --color-primary-50: #d2bcfe;
+  --color-primary-100: #bda2fb;
+  --color-primary-200: #a889f3;
+  --color-primary-300: #9470eb;
+  --color-primary-400: #8057e3;
+  --color-primary-500: #6c3fdb;
+  --color-primary-600: #5b35bd;
+  --color-primary-700: #4a2ba0;
+  --color-primary-800: #3a2283;
+  --color-primary-900: #2d1b69;
+
+  /* Secondary Colors */
+  --color-secondary-500: #331a7d;
+  --color-secondary-600: #2c166a;
+  --color-secondary-700: #251358;
+  --color-secondary-800: #1e0f45;
+  --color-secondary-900: #170b33;
+
+  /* Accent Colors */
+  --color-accent-400: #ffa1ff;
+  --color-accent-500: #ff7dff;
+
+  /* Fonts */
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Lexend", sans-serif;
+
+  /* Box Shadow (example) */
+  --shadow-accent: 0 0 10px rgba(255, 125, 255, 0.4);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-secondary-900);
+  color: white;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Pulse Slow Animation */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation Classes */
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    var(--color-accent-500),
+    var(--color-primary-400)
+  );
+}
+
+/* Purple Background Gradient */
+.purple-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-secondary-800),
+    var(--color-primary-900),
+    var(--color-secondary-900)
+  );
+}
+
+/* Card Gradient Background */
+.card-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(30, 15, 69, 0.5),
+    rgba(45, 27, 105, 0.3)
+  );
+}
+
+/* Glass Effect */
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem; /* Tailwind rounded-xl = 12px = 0.75rem */
+}
