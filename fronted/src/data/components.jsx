@@ -1,5 +1,64 @@
-// src/data/components.js
+// src/data/components.jsx
+import React from "react";
 import { StyleDiv } from "design-labs-ui";
+
+// Mock Dterminal component until you publish it
+const Dterminal = ({
+  textColor = "#00FF00",
+  backgroundColor = "#000000",
+  topText = "user@mac:~$",
+  terminalText = "echo Hello, World!",
+}) => {
+  const [displayedText, setDisplayedText] = React.useState("");
+
+  React.useEffect(() => {
+    let index = 0;
+    setDisplayedText("");
+
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => prev + terminalText.charAt(index));
+      index++;
+
+      if (index > terminalText.length) {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [terminalText]);
+
+  return (
+    <div
+      style={{
+        backgroundColor: backgroundColor,
+        color: textColor,
+        fontFamily: "monospace",
+        padding: "1rem",
+        borderRadius: "8px",
+        maxWidth: "600px",
+        margin: "1rem auto",
+        boxShadow: `0 0 10px rgba(0, 0, 0, 0.5)`,
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ marginBottom: "0.5rem", fontWeight: "bold" }}>
+        {topText}
+      </div>
+      <div>
+        {displayedText}
+        <span className="blinking-cursor">|</span>
+      </div>
+      <style>{`
+        .blinking-cursor {
+          animation: blink 1s step-start 0s infinite;
+        }
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export const components = [
   {
@@ -120,6 +179,87 @@ function Example() {
         type: "ReactNode",
         default: "-",
         description: "Child elements to render inside the div",
+      },
+    ],
+  },
+  {
+    id: "dterminal",
+    name: "Dterminal",
+    description:
+      "A terminal-like component with typing animation for showcasing code snippets and commands.",
+    component: Dterminal,
+    props: {
+      textColor: "#00FF00",
+      backgroundColor: "#000000",
+      topText: "user@designlabs:~$",
+      terminalText: "npm install design-labs-ui --save",
+    },
+    code: `import { Dterminal } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <Dterminal
+      textColor="#00FF00"
+      backgroundColor="#000000"
+      topText="user@designlabs:~$"
+      terminalText="npm install design-labs-ui --save"
+    />
+  );
+}`,
+    examples: [
+      {
+        name: "Basic",
+        props: {
+          textColor: "#00FF00",
+          backgroundColor: "#000000",
+          topText: "user@designlabs:~$",
+          terminalText: "npm install design-labs-ui --save",
+        },
+      },
+      {
+        name: "React Theme",
+        props: {
+          textColor: "#61DAFB",
+          backgroundColor: "#282C34",
+          topText: "react-dev:~$",
+          terminalText: "npx create-react-app my-awesome-app",
+        },
+      },
+      {
+        name: "Git Commands",
+        props: {
+          textColor: "#F1502F",
+          backgroundColor: "#0D1117",
+          topText: "git@github:~$",
+          terminalText:
+            "git clone https://github.com/t3nsor98/Design-Labs-UI.git",
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "textColor",
+        type: "string",
+        default: "#00FF00",
+        description: "Color of the terminal text",
+      },
+      {
+        name: "backgroundColor",
+        type: "string",
+        default: "#000000",
+        description: "Background color of the terminal",
+      },
+      {
+        name: "topText",
+        type: "string",
+        default: "user@mac:~$",
+        description: "Text displayed at the top of the terminal",
+      },
+      {
+        name: "terminalText",
+        type: "string",
+        default: "echo Hello, World!",
+        description: "Text to be animated in the terminal",
       },
     ],
   },
