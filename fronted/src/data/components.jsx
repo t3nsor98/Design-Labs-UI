@@ -22,7 +22,7 @@ const Dterminal = ({
       if (index > terminalText.length) {
         clearInterval(interval);
       }
-    }, 100);
+    }, 150);
 
     return () => clearInterval(interval);
   }, [terminalText]);

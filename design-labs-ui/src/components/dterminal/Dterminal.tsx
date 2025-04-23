@@ -36,16 +36,16 @@ const Dterminal: React.FC<DterminalProps> = ({
 
   useEffect(() => {
     let index = 0;
-    setDisplayedText("");
+    // setDisplayedText("");
 
     const interval = setInterval(() => {
       setDisplayedText((prev) => prev + terminalText.charAt(index));
       index++;
 
-      if (index > terminalText.length) {
+      if (index >= terminalText.length) {
         clearInterval(interval);
       }
-    }, 100); // typing speed
+    }, 150); // typing speed
 
     return () => clearInterval(interval);
   }, [terminalText]);
