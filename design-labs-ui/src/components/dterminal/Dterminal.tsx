@@ -33,21 +33,33 @@ const Dterminal: React.FC<DterminalProps> = ({
   terminalText = "echo Hello, World!",
 }) => {
   const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
+    // Reset everything when terminalText changes
+    setDisplayedText("");
+    setIsTyping(true);
+
     let index = 0;
-    // setDisplayedText("");
+    let timer: NodeJS.Timeout | null = null;
 
-    const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + terminalText.charAt(index));
-      index++;
-
-      if (index >= terminalText.length) {
-        clearInterval(interval);
+    const typeNextChar = () => {
+      if (index < terminalText.length) {
+        // Directly set the full text up to the current index
+        setDisplayedText(terminalText.substring(0, index + 1));
+        index++;
+        timer = setTimeout(typeNextChar, 150);
+      } else {
+        setIsTyping(false);
       }
-    }, 150); // typing speed
+    };
 
-    return () => clearInterval(interval);
+    // Start typing with a small initial delay
+    timer = setTimeout(typeNextChar, 50);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [terminalText]);
 
   return (
@@ -69,7 +81,12 @@ const Dterminal: React.FC<DterminalProps> = ({
       </div>
       <div>
         {displayedText}
-        <span className="blinking-cursor">|</span>
+        {isTyping && <span className="blinking-cursor">|</span>}
+        {!isTyping && (
+          <span className="blinking-cursor" style={{ marginLeft: "0.1em" }}>
+            |
+          </span>
+        )}
       </div>
       <style>{`
         .blinking-cursor {
