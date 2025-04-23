@@ -1,0 +1,123 @@
+.dlui-simplenav {
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.dlui-simplenav-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.dlui-simplenav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dlui-simplenav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dlui-simplenav-desktop-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.dlui-simplenav-item {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.dlui-simplenav-item:hover:not(.dlui-simplenav-item-active) {
+  background-color: rgba(var(--accent-color), 0.1);
+}
+
+.dlui-simplenav-item-active {
+  background-color: rgba(var(--accent-color), 0.2);
+}
+
+.dlui-simplenav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.dlui-simplenav-toggle span {
+  width: 30px;
+  height: 3px;
+  transition: all 0.3s linear;
+  transform-origin: 1px;
+}
+
+.dlui-simplenav-toggle-active span:first-child {
+  transform: rotate(45deg);
+}
+
+.dlui-simplenav-toggle-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.dlui-simplenav-toggle-active span:last-child {
+  transform: rotate(-45deg);
+}
+
+.dlui-simplenav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dlui-simplenav-mobile-menu-active {
+  display: flex;
+}
+
+.dlui-simplenav-mobile-item {
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.dlui-simplenav-mobile-item-active {
+  background-color: rgba(var(--accent-color), 0.2);
+}
+
+@media (max-width: 768px) {
+  .dlui-simplenav-desktop-menu {
+    display: none;
+  }
+
+  .dlui-simplenav-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .dlui-simplenav-mobile-menu {
+    display: none !important;
+  }
+}
