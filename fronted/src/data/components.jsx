@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleDiv, Dterminal } from "design-labs-ui";
+import { StyleDiv, Dterminal, GlassDiv } from "design-labs-ui";
 
 export const components = [
   {
@@ -204,5 +204,141 @@ function Example() {
       },
     ],
   },
+  {
+    id: "glassdiv",
+    name: "GlassDiv",
+    description:
+      "A modern glassmorphism component with customizable blur, opacity, and border effects.",
+    component: GlassDiv,
+    props: {
+      backgroundColor: "rgba(144, 19, 254, 0.3)",
+      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+      blurAmount: "2px",
+      borderRadius: "10px",
+      borderWidth: "1px",
+      borderColor: "rgba(255, 255, 255, 0.18)",
+      padding: "20px",
+      className: "",
+      children: <p className="text-white">This is a glass effect component.</p>,
+    },
+    code: `import { GlassDiv } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <GlassDiv
+      backgroundColor="rgba(144, 19, 254, 0.3)"
+      boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+      blurAmount="2px"
+      borderRadius="10px"
+      borderWidth="1px"
+      borderColor="rgba(255, 255, 255, 0.18)"
+      padding="20px"
+    >
+      <p className="text-white">This is a glass effect component.</p>
+    </GlassDiv>
+  );
+}`,
+    examples: [
+      {
+        name: "Basic",
+        props: {
+          backgroundColor: "rgba(80, 19, 254, 0.1)",
+          blurAmount: "2px",
+          children: <p className="text-white">Basic glass effect example.</p>,
+        },
+      },
+      {
+        name: "Light Glass",
+        props: {
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          blurAmount: "5px",
+          borderColor: "rgba(255, 255, 255, 0.3)",
+          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.2)",
+          children: (
+            <p className="text-white">Light glass effect with more blur.</p>
+          ),
+        },
+      },
+      {
+        name: "Dark Glass",
+        props: {
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          blurAmount: "3px",
+          borderColor: "rgba(255, 255, 255, 0.1)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.5)",
+          children: <p className="text-white">Dark glass effect example.</p>,
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "backgroundColor",
+        type: "string",
+        default: "rgba(144, 19, 254, 0.3)",
+        description: "Background color with opacity",
+      },
+      {
+        name: "boxShadow",
+        type: "string",
+        default: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+        description: "Box shadow effect",
+      },
+      {
+        name: "blurAmount",
+        type: "string",
+        default: "2px",
+        description: "Blur amount for the backdrop filter",
+      },
+      {
+        name: "borderRadius",
+        type: "string",
+        default: "10px",
+        description: "Border radius of the div",
+      },
+      {
+        name: "borderWidth",
+        type: "string",
+        default: "1px",
+        description: "Border width",
+      },
+      {
+        name: "borderColor",
+        type: "string",
+        default: "rgba(255, 255, 255, 0.18)",
+        description: "Border color with opacity",
+      },
+      {
+        name: "padding",
+        type: "string",
+        default: "20px",
+        description: "Padding inside the div",
+      },
+      {
+        name: "width",
+        type: "string",
+        default: "auto",
+        description: "Width of the div",
+      },
+      {
+        name: "height",
+        type: "string",
+        default: "auto",
+        description: "Height of the div",
+      },
+      {
+        name: "className",
+        type: "string",
+        default: "",
+        description: "Additional CSS class names",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        default: "-",
+        description: "Child elements to render inside the div",
+      },
+    ],
+  },
+
   // Add more components here as they are developed
 ];
