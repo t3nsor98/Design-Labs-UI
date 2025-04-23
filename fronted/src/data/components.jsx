@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleDiv, Dterminal, GlassDiv } from "design-labs-ui";
+import { StyleDiv, Dterminal, GlassDiv, SimpleNav } from "design-labs-ui";
 
 export const components = [
   {
@@ -336,6 +336,143 @@ function Example() {
         type: "ReactNode",
         default: "-",
         description: "Child elements to render inside the div",
+      },
+    ],
+  },
+  {
+    id: "simplenav",
+    name: "SimpleNav",
+    description:
+      "A responsive navigation bar component with customizable colors and mobile menu.",
+    component: SimpleNav,
+    props: {
+      brandText: "Design Labs",
+      brandHref: "#",
+      navItems: [
+        { label: "Home", href: "#", active: true },
+        { label: "Components", href: "#" },
+        { label: "Documentation", href: "#" },
+        { label: "About", href: "#" },
+      ],
+      textColor: "#ffffff",
+      backgroundColor: "#333333",
+      accentColor: "#6c3fdb",
+      sticky: false,
+    },
+    code: `import { SimpleNav } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <SimpleNav
+      brandText="Design Labs"
+      brandHref="#"
+      navItems={[
+        { label: "Home", href: "#", active: true },
+        { label: "Components", href: "#" },
+        { label: "Documentation", href: "#" },
+        { label: "About", href: "#" },
+      ]}
+      textColor="#ffffff"
+      backgroundColor="#333333"
+      accentColor="#6c3fdb"
+      sticky={false}
+    />
+  );
+}`,
+    examples: [
+      {
+        name: "Basic",
+        props: {
+          brandText: "Design Labs",
+          navItems: [
+            { label: "Home", href: "#", active: true },
+            { label: "Offerings", href: "#" },
+            { label: "Services", href: "#" },
+            { label: "About Us", href: "#" },
+          ],
+          textColor: "#FFFF82",
+          backgroundColor: "#0F0326",
+          accentColor: "#6c3fdb",
+        },
+      },
+      {
+        name: "Dark Theme",
+        props: {
+          brandText: "Dark Theme",
+          navItems: [
+            { label: "Home", href: "#", active: true },
+            { label: "Products", href: "#" },
+            { label: "Services", href: "#" },
+            { label: "Contact", href: "#" },
+          ],
+          backgroundColor: "#1a1a1a",
+          accentColor: "#ff7dff",
+        },
+      },
+      {
+        name: "Light Theme",
+        props: {
+          brandText: "Light Theme",
+          navItems: [
+            { label: "Home", href: "#", active: true },
+            { label: "Features", href: "#" },
+            { label: "Pricing", href: "#" },
+            { label: "Blog", href: "#" },
+          ],
+          backgroundColor: "#ffffff",
+          textColor: "#333333",
+          accentColor: "#6c3fdb",
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "brandText",
+        type: "string",
+        default: "Brand",
+        description: "Brand/logo text to display",
+      },
+      {
+        name: "brandHref",
+        type: "string",
+        default: "#",
+        description: "URL for the brand/logo",
+      },
+      {
+        name: "navItems",
+        type: "NavItem[]",
+        default: "[]",
+        description: "Array of navigation items",
+      },
+      {
+        name: "textColor",
+        type: "string",
+        default: "#ffffff",
+        description: "Text color for the navigation",
+      },
+      {
+        name: "backgroundColor",
+        type: "string",
+        default: "#333333",
+        description: "Background color for the navigation",
+      },
+      {
+        name: "accentColor",
+        type: "string",
+        default: "#6c3fdb",
+        description: "Accent color for active items and hover states",
+      },
+      {
+        name: "sticky",
+        type: "boolean",
+        default: "false",
+        description: "Whether to stick the navbar to the top",
+      },
+      {
+        name: "className",
+        type: "string",
+        default: "",
+        description: "Additional CSS class names",
       },
     ],
   },
