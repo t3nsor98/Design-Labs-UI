@@ -210,10 +210,10 @@ function Example() {
       {
         name: "Basic",
         props: {
-          textColor: "#00FF00",
-          backgroundColor: "#000000",
-          topText: "user@designlabs:~$",
-          terminalText: "npm install design-labs-ui --save",
+          textColor: "#FFF3B0",
+          backgroundColor: "#540B0E",
+          topText: "t3nsor@designlabs:~$",
+          terminalText: "npm install design-labs-ui",
         },
       },
       {
@@ -221,8 +221,8 @@ function Example() {
         props: {
           textColor: "#61DAFB",
           backgroundColor: "#282C34",
-          topText: "react-dev:~$",
-          terminalText: "npx create-react-app my-awesome-app",
+          topText: "t3nsor-dev:~$",
+          terminalText: "npm create vite@latest .",
         },
       },
       {
