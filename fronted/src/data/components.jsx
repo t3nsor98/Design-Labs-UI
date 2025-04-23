@@ -1,81 +1,81 @@
 // src/data/components.jsx
 import React from "react";
-import { StyleDiv } from "design-labs-ui";
+import { StyleDiv, Dterminal } from "design-labs-ui";
 
 // Mock Dterminal component until you publish it
-const Dterminal = ({
-  textColor = "#00FF00",
-  backgroundColor = "#000000",
-  topText = "user@mac:~$",
-  terminalText = "echo Hello, World!",
-}) => {
-  const [displayedText, setDisplayedText] = React.useState("");
-  const [isTyping, setIsTyping] = React.useState(false);
+// const Dterminal = ({
+//   textColor = "#00FF00",
+//   backgroundColor = "#000000",
+//   topText = "user@mac:~$",
+//   terminalText = "echo Hello, World!",
+// }) => {
+//   const [displayedText, setDisplayedText] = React.useState("");
+//   const [isTyping, setIsTyping] = React.useState(false);
 
-  React.useEffect(() => {
-    // Reset everything when terminalText changes
-    setDisplayedText("");
-    setIsTyping(true);
+//   React.useEffect(() => {
+//     // Reset everything when terminalText changes
+//     setDisplayedText("");
+//     setIsTyping(true);
 
-    let index = 0;
-    let timer = null;
+//     let index = 0;
+//     let timer = null;
 
-    const typeNextChar = () => {
-      if (index < terminalText.length) {
-        // Directly set the full text up to the current index
-        setDisplayedText(terminalText.substring(0, index + 1));
-        index++;
-        timer = setTimeout(typeNextChar, 150);
-      } else {
-        setIsTyping(false);
-      }
-    };
+//     const typeNextChar = () => {
+//       if (index < terminalText.length) {
+//         // Directly set the full text up to the current index
+//         setDisplayedText(terminalText.substring(0, index + 1));
+//         index++;
+//         timer = setTimeout(typeNextChar, 150);
+//       } else {
+//         setIsTyping(false);
+//       }
+//     };
 
-    // Start typing with a small initial delay
-    timer = setTimeout(typeNextChar, 50);
+//     // Start typing with a small initial delay
+//     timer = setTimeout(typeNextChar, 50);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [terminalText]);
+//     return () => {
+//       clearTimeout(timer);
+//     };
+//   }, [terminalText]);
 
-  return (
-    <div
-      style={{
-        backgroundColor: backgroundColor,
-        color: textColor,
-        fontFamily: "monospace",
-        padding: "1rem",
-        borderRadius: "8px",
-        maxWidth: "600px",
-        margin: "1rem auto",
-        boxShadow: `0 0 10px rgba(0, 0, 0, 0.5)`,
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ marginBottom: "0.5rem", fontWeight: "bold" }}>
-        {topText}
-      </div>
-      <div>
-        {displayedText}
-        {isTyping && <span className="blinking-cursor">|</span>}
-        {!isTyping && (
-          <span className="blinking-cursor" style={{ marginLeft: "0.1em" }}>
-            |
-          </span>
-        )}
-      </div>
-      <style>{`
-        .blinking-cursor {
-          animation: blink 1s step-start 0s infinite;
-        }
-        @keyframes blink {
-          50% { opacity: 0; }
-        }
-      `}</style>
-    </div>
-  );
-};
+//   return (
+//     <div
+//       style={{
+//         backgroundColor: backgroundColor,
+//         color: textColor,
+//         fontFamily: "monospace",
+//         padding: "1rem",
+//         borderRadius: "8px",
+//         maxWidth: "600px",
+//         margin: "1rem auto",
+//         boxShadow: `0 0 10px rgba(0, 0, 0, 0.5)`,
+//         overflow: "hidden",
+//       }}
+//     >
+//       <div style={{ marginBottom: "0.5rem", fontWeight: "bold" }}>
+//         {topText}
+//       </div>
+//       <div>
+//         {displayedText}
+//         {isTyping && <span className="blinking-cursor">|</span>}
+//         {!isTyping && (
+//           <span className="blinking-cursor" style={{ marginLeft: "0.1em" }}>
+//             |
+//           </span>
+//         )}
+//       </div>
+//       <style>{`
+//         .blinking-cursor {
+//           animation: blink 1s step-start 0s infinite;
+//         }
+//         @keyframes blink {
+//           50% { opacity: 0; }
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
 
 export const components = [
   {
