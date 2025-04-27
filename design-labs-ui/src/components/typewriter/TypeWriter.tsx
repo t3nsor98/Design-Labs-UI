@@ -38,31 +38,28 @@ const TypeWriter: React.FC<TypeWriterProps> = ({
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let typingSpeed = isDeleting ? 50 : 150;
     const currentWord = variableWords[wordIndex];
+    let typingSpeed = isDeleting ? 50 : 150;
 
-    const typeNextChar = () => {
-      if (!isDeleting && charIndex <= currentWord.length) {
-        setDisplayedText(currentWord.substring(0, charIndex));
-        setCharIndex(charIndex + 1);
-      } else if (isDeleting && charIndex >= 0) {
-        setDisplayedText(currentWord.substring(0, charIndex));
-        setCharIndex(charIndex - 1);
-      }
-
-      if (charIndex === currentWord.length + 1 && !isDeleting) {
-        // Pause at the end of typing a word
+    const timeout = setTimeout(() => {
+      if (!isDeleting && charIndex < currentWord.length) {
+        // Typing characters
+        setDisplayedText(currentWord.substring(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+      } else if (isDeleting && charIndex > 0) {
+        // Deleting characters
+        setDisplayedText(currentWord.substring(0, charIndex - 1));
+        setCharIndex((prev) => prev - 1);
+      } else if (!isDeleting && charIndex === currentWord.length) {
+        // Pause before deleting
         setTimeout(() => setIsDeleting(true), 1000);
-        return;
-      } else if (charIndex === 0 && isDeleting) {
+      } else if (isDeleting && charIndex === 0) {
+        // Move to the next word
         setIsDeleting(false);
-        setWordIndex((wordIndex + 1) % variableWords.length);
+        setWordIndex((prev) => (prev + 1) % variableWords.length);
       }
+    }, typingSpeed);
 
-      setTimeout(typeNextChar, typingSpeed);
-    };
-
-    const timeout = setTimeout(typeNextChar, typingSpeed);
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, variableWords, wordIndex]);
 

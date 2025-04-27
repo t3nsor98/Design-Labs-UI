@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleDiv, Dterminal, GlassDiv, SimpleNav } from "design-labs-ui";
+import { StyleDiv, Dterminal, GlassDiv, SimpleNav, TypeWriter } from "design-labs-ui";
 
 export const components = [
   {
@@ -473,6 +473,107 @@ function Example() {
         type: "string",
         default: "",
         description: "Additional CSS class names",
+      },
+    ],
+  },
+  {
+    id: "typewriter",
+    name: "TypeWriter",
+    description:
+      "A beautiful typewriter effect component with glowing border and animated text.",
+    component: TypeWriter,
+    props: {
+      textColor: "#61dafb",
+      backgroundColor: "rgba(0, 0, 0, 0.7)",
+      constantWord: "I am a",
+      variableWords: [
+        "frontend developer",
+        "full stack developer",
+        "UI designer",
+        "problem solver",
+      ],
+    },
+    code: `import { TypeWriter } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <TypeWriter
+      textColor="#61dafb"
+      backgroundColor="rgba(0, 0, 0, 0.7)"
+      constantWord="I am a"
+      variableWords={[
+        "frontend developer",
+        "full stack developer",
+        "UI designer",
+        "problem solver"
+      ]}
+    />
+  );
+}`,
+    examples: [
+      {
+        name: "Default",
+        props: {
+          textColor: "#61dafb",
+          backgroundColor: "rgba(0, 0, 0, 0.7)",
+          constantWord: "I am a",
+          variableWords: [
+            "frontend developer",
+            "full stack developer",
+            "UI designer",
+            "problem solver",
+          ],
+        },
+      },
+      {
+        name: "Purple Theme",
+        props: {
+          textColor: "#9c27b0",
+          backgroundColor: "rgba(25, 10, 41, 0.8)",
+          constantWord: "Design Labs is",
+          variableWords: ["beautiful", "modern", "responsive", "customizable"],
+        },
+      },
+      {
+        name: "Neon Green",
+        props: {
+          textColor: "#39FF14",
+          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          constantWord: "We build",
+          variableWords: [
+            "amazing UIs",
+            "responsive layouts",
+            "interactive components",
+            "design systems",
+          ],
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "textColor",
+        type: "string",
+        default: "#ffffff",
+        description: "Color of the text and glow effect",
+      },
+      {
+        name: "backgroundColor",
+        type: "string",
+        default: "rgba(0, 0, 0, 0.5)",
+        description: "Background color of the container",
+      },
+      {
+        name: "constantWord",
+        type: "string",
+        default: "-",
+        description: "The constant text that appears before the changing words",
+      },
+      {
+        name: "variableWords",
+        type: "string[]",
+        default: "[]",
+        description:
+          "Array of words that will be typed and deleted in sequence",
       },
     ],
   },
