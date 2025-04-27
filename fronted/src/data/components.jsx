@@ -512,16 +512,16 @@ function Example() {
 }`,
     examples: [
       {
-        name: "Default",
+        name: "Basic",
         props: {
-          textColor: "#61dafb",
+          textColor: "#F4D35E",
           backgroundColor: "rgba(0, 0, 0, 0.7)",
-          constantWord: "I am a",
+          constantWord: "We are",
           variableWords: [
-            "frontend developer",
-            "full stack developer",
-            "UI designer",
-            "problem solver",
+            "frontend developers",
+            "full stack developers",
+            "UI designers",
+            "problem solvers",
           ],
         },
       },
