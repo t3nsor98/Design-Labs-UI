@@ -10,5 +10,8 @@ export { default as GlassDiv } from './glassdiv';
 // simplenav
 export * from './simplenav';
 export { default as SimpleNav } from './simplenav';
+// typewriter
+export * from './typewriter';
+export { default as TypeWriter } from './typewriter';
 
 
