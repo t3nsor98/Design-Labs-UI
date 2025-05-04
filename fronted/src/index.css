@@ -130,3 +130,41 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem; /* Tailwind rounded-xl = 12px = 0.75rem */
 }
+
+
+
+/* Dark Mode Styles */
+.dark body {
+  background-color: var(--color-primary-900);
+  color: var(--color-primary-50);
+}
+
+.dark .gradient-text {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-200),
+    var(--color-accent-400)
+  );
+}
+
+.dark .purple-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-primary-800),
+    var(--color-secondary-900),
+    var(--color-primary-900)
+  );
+}
+
+.dark .card-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(45, 27, 105, 0.5),
+    rgba(30, 15, 69, 0.3)
+  );
+}
+
+.dark .glass-effect {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
