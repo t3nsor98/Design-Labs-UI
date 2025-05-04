@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleDiv, Dterminal, GlassDiv, SimpleNav, TypeWriter } from "design-labs-ui";
+import {
+  StyleDiv,
+  Dterminal,
+  GlassDiv,
+  SimpleNav,
+  TypeWriter,
+  Dclock,
+} from "design-labs-ui";
 
 export const components = [
   {
@@ -574,6 +581,99 @@ function Example() {
         default: "[]",
         description:
           "Array of words that will be typed and deleted in sequence",
+      },
+    ],
+  },
+  {
+    id: "dclock",
+    name: "Dclock",
+    description:
+      "A customizable digital clock component with multiple font options and beautiful styling.",
+    component: Dclock,
+    props: {
+      backgroundColor: "#111111",
+      textColor: "#39FF14",
+      fontFamily: "orbitron",
+      showSeconds: true,
+      twentyFourHours: false,
+    },
+    code: `import { Dclock } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <Dclock
+      backgroundColor="#111111"
+      textColor="#39FF14"
+      fontFamily="orbitron"
+      showSeconds={true}
+      twentyFourHours={false}
+    />
+  );
+}`,
+    examples: [
+      {
+        name: "Blue Digital",
+        props: {
+          backgroundColor: "#001133",
+          textColor: "#00AAFF",
+          fontFamily: "digital",
+        },
+      },
+      {
+        name: "Red Alarm",
+        props: {
+          backgroundColor: "#330000",
+          textColor: "#FF3333",
+          fontFamily: "alarm",
+          twentyFourHours: true,
+        },
+      },
+      {
+        name: "Segment Display",
+        props: {
+          backgroundColor: "#222222",
+          textColor: "#FFCC00",
+          fontFamily: "segment",
+          showSeconds: false,
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "backgroundColor",
+        type: "string",
+        default: "#111111",
+        description: "Background color of the clock",
+      },
+      {
+        name: "textColor",
+        type: "string",
+        default: "#39FF14",
+        description: "Text color of the clock",
+      },
+      {
+        name: "fontFamily",
+        type: "'orbitron' | 'digital' | 'segment' | 'alarm'",
+        default: "orbitron",
+        description: "Digital font family to use",
+      },
+      {
+        name: "showSeconds",
+        type: "boolean",
+        default: "true",
+        description: "Whether to show seconds",
+      },
+      {
+        name: "twentyFourHours",
+        type: "boolean",
+        default: "false",
+        description: "Whether to use 24-hour format",
+      },
+      {
+        name: "className",
+        type: "string",
+        default: "''",
+        description: "Additional CSS class names",
       },
     ],
   },
