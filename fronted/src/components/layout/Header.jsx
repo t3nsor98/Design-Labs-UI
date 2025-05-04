@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiMenu, FiX, FiGithub } from "react-icons/fi";
 import ThemeToggle from "../showcase/ThemeToggle";
@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header className="fixed w-full z-50 glass-effect">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
+        <NavLink to="/" className={"flex items-center space-x-2"}>
           <motion.div
             initial={{ rotate: -90 }}
             animate={{ rotate: 0 }}
@@ -42,7 +42,7 @@ const Header = () => {
           >
             Design Labs UI
           </motion.h1>
-        </Link>
+        </NavLink>
 
         {/* Desktop Navigation */}
         <motion.nav
@@ -52,28 +52,40 @@ const Header = () => {
           animate="visible"
         >
           <motion.div variants={itemVariants}>
-            <Link
+            <NavLink
               to="/"
-              className="text-white/80 hover:text-white transition-colors"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors"
+                  : "text-white/80 hover:text-white transition-colors"
+              }
             >
               Home
-            </Link>
+            </NavLink>
           </motion.div>
           <motion.div variants={itemVariants}>
-            <Link
+            <NavLink
               to="/showcase"
-              className="text-white/80 hover:text-white transition-colors"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors"
+                  : "text-white/80 hover:text-white transition-colors"
+              }
             >
               Components
-            </Link>
+            </NavLink>
           </motion.div>
           <motion.div variants={itemVariants}>
-            <Link
+            <NavLink
               to="/documentation"
-              className="text-white/80 hover:text-white transition-colors"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors"
+                  : "text-white/80 hover:text-white transition-colors"
+              }
             >
               Documentation
-            </Link>
+            </NavLink>
           </motion.div>
           <motion.div variants={itemVariants}>
             <a
@@ -112,27 +124,39 @@ const Header = () => {
           className="md:hidden bg-secondary-800 border-t border-white/10"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link
+            <NavLink
               to="/"
-              className="text-white/80 hover:text-white transition-colors py-2"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors py-2"
+                  : "text-white/80 hover:text-white transition-colors py-2"
+              }
               onClick={() => setIsOpen(false)}
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/showcase"
-              className="text-white/80 hover:text-white transition-colors py-2"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors py-2"
+                  : "text-white/80 hover:text-white transition-colors py-2"
+              }
               onClick={() => setIsOpen(false)}
             >
               Components
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/documentation"
-              className="text-white/80 hover:text-white transition-colors py-2"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold transition-colors py-2"
+                  : "text-white/80 hover:text-white transition-colors py-2"
+              }
               onClick={() => setIsOpen(false)}
             >
               Documentation
-            </Link>
+            </NavLink>
             <a
               href="https://github.com/t3nsor98/Design-Labs-UI"
               target="_blank"
