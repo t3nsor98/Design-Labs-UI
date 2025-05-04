@@ -13,5 +13,8 @@ export { default as SimpleNav } from './simplenav';
 // typewriter
 export * from './typewriter';
 export { default as TypeWriter } from './typewriter';
+// dclock
+export * from './dclock';
+export { default as Dclock } from './dclock';
 
 
