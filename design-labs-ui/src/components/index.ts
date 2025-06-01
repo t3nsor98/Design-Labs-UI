@@ -16,6 +16,9 @@ export { default as TypeWriter } from './typewriter';
 // dclock
 export * from './dclock';
 export { default as Dclock } from './dclock';
+// dcard
+export * from './dcard/Dcard.types';
+export { default as Dcard } from './dcard/Dcard';
 
 
 
