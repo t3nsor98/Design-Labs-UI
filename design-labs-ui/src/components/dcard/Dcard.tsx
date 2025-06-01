@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DcardProps } from "./Dcard.types";
-import styles from "./Dcard.module.css";
+import "./Dcard.css"; // Changed to regular import
 
 /**
  * Dcard component displays a responsive grid of flip cards with an image on front and text on back
@@ -35,7 +35,7 @@ export const Dcard: React.FC<DcardProps> = ({
 
   return (
     <div
-      className={`${styles.dcardContainer} ${className}`}
+      className={`dcard-container ${className}`}
       style={containerStyle}
     >
       {cards.map((card) => {
@@ -44,7 +44,7 @@ export const Dcard: React.FC<DcardProps> = ({
         return (
           <div
             key={card.id}
-            className={`${styles.card} ${isFlipped ? styles.flipped : ''}`}
+            className={`card ${isFlipped ? 'flipped' : ''}`}
             onClick={() => toggleFlip(card.id)}
             role="button"
             tabIndex={0}
@@ -56,23 +56,23 @@ export const Dcard: React.FC<DcardProps> = ({
             aria-label={`Flip card ${card.altText || card.id}`}
           >
             <div 
-              className={styles.cardInner} 
+              className="card-inner" 
               style={{ transition: `transform ${animationDuration}ms` }}
             >
-              <div className={styles.cardFront}>
+              <div className="card-front">
                 <img
                   src={card.frontImage}
                   alt={card.altText || `Card ${card.id}`}
-                  className={styles.cardImage}
+                  className="card-image"
                   loading="lazy"
                 />
                 {card.frontTitle && (
-                  <div className={styles.cardTitle}>{card.frontTitle}</div>
+                  <div className="card-title">{card.frontTitle}</div>
                 )}
               </div>
-              <div className={styles.cardBack}>
-                <div className={styles.cardContent}>
-                  {card.backTitle && <h3 className={styles.backTitle}>{card.backTitle}</h3>}
+              <div className="card-back">
+                <div className="card-content">
+                  {card.backTitle && <h3 className="back-title">{card.backTitle}</h3>}
                   <p>{card.backText}</p>
                 </div>
               </div>
