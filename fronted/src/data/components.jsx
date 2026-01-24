@@ -6,6 +6,7 @@ import {
   SimpleNav,
   TypeWriter,
   Dclock,
+  Dcard,
 } from "design-labs-ui";
 
 export const components = [
@@ -674,6 +675,243 @@ function Example() {
         type: "string",
         default: "''",
         description: "Additional CSS class names",
+      },
+    ],
+  },
+  {
+    id: "dcard",
+    name: "Dcard",
+    description:
+      "A responsive grid of interactive flip cards with image on front and text on back.",
+    component: Dcard,
+    props: {
+      cards: [
+        {
+          id: 1,
+          frontImage:
+            "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          frontTitle: "Design Labs UI",
+          backTitle: "Interactive Cards",
+          backText:
+            "This card demonstrates the flip animation effect with an image on the front and text content on the back.",
+          altText: "Example card",
+        },
+        {
+          id: 2,
+          frontImage:
+            "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          frontTitle: "Responsive Design",
+          backTitle: "Mobile Friendly",
+          backText:
+            "Cards automatically adjust to fit any screen size with a clean responsive grid layout.",
+          altText: "Responsive example",
+        },
+        {
+          id: 3,
+          frontImage:
+            "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          backTitle: "No Front Title",
+          backText:
+            "Front titles are optional. This card has no front title but still looks great!",
+          altText: "Optional title example",
+        },
+      ],
+      cardWidth: 250,
+      cardHeight: 350,
+      gap: 20,
+      animationDuration: 300,
+    },
+    code: `import { Dcard } from 'design-labs-ui';
+
+function Example() {
+  return (
+    <Dcard
+      cards={[
+        {
+          id: 1,
+          frontImage: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          frontTitle: "Design Labs UI",
+          backTitle: "Interactive Cards",
+          backText: "This card demonstrates the flip animation effect with an image on the front and text content on the back.",
+          altText: "Example card"
+        },
+        {
+          id: 2,
+          frontImage: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          frontTitle: "Responsive Design",
+          backTitle: "Mobile Friendly",
+          backText: "Cards automatically adjust to fit any screen size with a clean responsive grid layout.",
+          altText: "Responsive example"
+        },
+        {
+          id: 3,
+          frontImage: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+          backTitle: "No Front Title", 
+          backText: "Front titles are optional. This card has no front title but still looks great!",
+          altText: "Optional title example"
+        }
+      ]}
+      cardWidth={250}
+      cardHeight={350}
+      gap={20}
+      animationDuration={300}
+    />
+  );
+}`,
+    examples: [
+      {
+        name: "Basic",
+        props: {
+          cards: [
+            {
+              id: 1,
+              frontImage:
+                "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+              frontTitle: "Click to Flip",
+              backTitle: "Hello!",
+              backText: "This is a basic flip card example. Click again to flip back.",
+              altText: "Basic flip card",
+            },
+            {
+              id: 2,
+              frontImage:
+                "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+              frontTitle: "Interactive",
+              backTitle: "Information",
+              backText:
+                "Flip cards are great for revealing additional information in an interactive way.",
+              altText: "Interactive card",
+            },
+          ],
+          gap: 15,
+        },
+      },
+      {
+        name: "Team Cards",
+        props: {
+          cards: [
+            {
+              id: 1,
+              frontImage:
+                "https://images.pexels.com/photos/30111684/pexels-photo-30111684/free-photo-of-black-and-white-portrait-of-woman-with-closed-eyes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Jane Doe",
+              backTitle: "Lead Developer",
+              backText:
+                "Jane has 5+ years of experience in React development and leads our frontend team.",
+              altText: "Jane Doe profile",
+            },
+            {
+              id: 2,
+              frontImage:
+                "https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "John Smith",
+              backTitle: "UI Designer",
+              backText:
+                "John creates beautiful user interfaces with a focus on accessibility and user experience.",
+              altText: "John Smith profile",
+            },
+            {
+              id: 3,
+              frontImage:
+                "https://images.pexels.com/photos/7242808/pexels-photo-7242808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Alex Johnson",
+              backTitle: "Project Manager",
+              backText:
+                "Alex ensures our projects are delivered on time and exceed client expectations.",
+              altText: "Alex Johnson profile",
+            },
+            {
+              id: 4,
+              frontImage:
+                "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Sarah Williams",
+              backTitle: "UX Researcher",
+              backText:
+                "Sarah conducts user research to ensure our designs meet real user needs and expectations.",
+              altText: "Sarah Williams profile",
+            },
+          ],
+          cardWidth: 220,
+          cardHeight: 320,
+          animationDuration: 400,
+        },
+      },
+      {
+        name: "Feature Cards",
+        props: {
+          cards: [
+            {
+              id: 1,
+              frontImage:
+                "https://images.pexels.com/photos/5077061/pexels-photo-5077061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Responsive Design",
+              backTitle: "Mobile First",
+              backText:
+                "Our components adjust perfectly to any screen size from mobile phones to large desktop displays.",
+              altText: "Responsive feature",
+            },
+            {
+              id: 2,
+              frontImage:
+                "https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Accessibility",
+              backTitle: "WCAG Compliant",
+              backText:
+                "All components meet WCAG standards with keyboard navigation and screen reader support.",
+              altText: "Accessibility feature",
+            },
+            {
+              id: 3,
+              frontImage:
+                "https://images.pexels.com/photos/32342295/pexels-photo-32342295/free-photo-of-wooden-blocks-displaying-web-design-in-artistic-style.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              frontTitle: "Customizable",
+              backTitle: "Easy To Style",
+              backText:
+                "Easily customize colors, sizes, and behaviors to match your design system requirements.",
+              altText: "Customization feature",
+            },
+          ],
+          gap: 25,
+          animationDuration: 500,
+        },
+      },
+    ],
+    propsList: [
+      {
+        name: "cards",
+        type: "Card[]",
+        default: "[]",
+        description: "Array of card objects to display in the grid",
+      },
+      {
+        name: "cardWidth",
+        type: "number",
+        default: "250",
+        description: "Width of each card in pixels",
+      },
+      {
+        name: "cardHeight",
+        type: "number",
+        default: "350",
+        description: "Height of each card in pixels",
+      },
+      {
+        name: "gap",
+        type: "number",
+        default: "20",
+        description: "Gap between cards in pixels",
+      },
+      {
+        name: "animationDuration",
+        type: "number",
+        default: "300",
+        description: "Duration of the flip animation in milliseconds",
+      },
+      {
+        name: "className",
+        type: "string",
+        default: "''",
+        description: "Additional CSS class names for the container",
       },
     ],
   },

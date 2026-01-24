@@ -72,7 +72,7 @@ const ComponentCard = ({ component }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="card-gradient rounded-xl border border-white/10 overflow-hidden"
+      className="card-gradient rounded-xl border border-white/10"
     >
       <div className="p-6 border-b border-white/10">
         <h2 className="text-2xl font-display font-semibold text-white mb-2">
